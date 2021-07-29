@@ -1,0 +1,21 @@
+{
+  "name": "orbiter",
+  "version": "0.1.0",
+  "description": "Orbiter is a Electron App based on Rocket.Chat\"",
+  "main": "main.js",
+  "repository": "https://github.com/cazetto/orbiter.git",
+  "author": "André <cazetto.andre@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "commit": "git add . && cz"
+  },
+  "devDependencies": {
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "^3.3.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
