@@ -1,27 +1,68 @@
 {
   "name": "orbiter",
-  "version": "0.1.0",
-  "description": "Orbiter is a Electron App based on Rocket.Chat\"",
-  "main": "src/main.js",
-  "repository": "https://github.com/cazetto/orbiter.git",
-  "author": "André <cazetto.andre@gmail.com>",
-  "license": "MIT",
+  "productName": "orbiter",
+  "version": "1.0.0",
+  "description": "My Electron application description",
+  "main": "src/index.js",
   "scripts": {
-    "start": "electron .",
+    "start": "electron-forge start",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\"",
+    "test": "echo \"No tests configured\"",
     "prepare": "husky install",
-    "test": "yarn lint",
-    "lint": "echo"
+    "precommit": "npm run lint && npm run test"
+  },
+  "keywords": ["Rocket.Chat.Desktop.App"],
+  "author": {
+    "name": "André Pesci Cazetto",
+    "email": "cazetto.andre@gmail.com"
+  },
+  "license": "MIT",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "orbiter"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
-    "electron": "^13.2.2",
-    "husky": "^7.0.1"
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+    "husky": "^7.0.1",
+    "@electron-forge/cli": "^6.0.0-beta.59",
+    "@electron-forge/maker-deb": "^6.0.0-beta.59",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.59",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.59",
+    "@electron-forge/maker-zip": "^6.0.0-beta.59",
+    "electron": "13.2.2"
   },
   "husky": {
     "hooks": {
@@ -29,3 +70,8 @@
     }
   }
 }
+
+
+    
+    
+    
